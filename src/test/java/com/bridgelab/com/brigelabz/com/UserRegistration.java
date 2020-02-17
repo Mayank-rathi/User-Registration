@@ -34,5 +34,19 @@ public class UserRegistration {
         boolean result = validation.validateFirstName("may");
         Assert.assertEquals(false,result);
     }
+    @Test
+    public void giveEmail_WhenProper_ShouldReturnTrue() {
+        UserValidation validation = new UserValidation();
+        boolean result = validation.validateEMAIL("abc-100@yahoo.com");
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void giveEmail_WhenUnProper_ShouldReturnFalse()
+    {
+        UserValidation validation = new UserValidation();
+        boolean result = validation.validateEMAIL("abc..2002@gmail.com");
+        Assert.assertEquals(false,result);
+    }
 
 }
