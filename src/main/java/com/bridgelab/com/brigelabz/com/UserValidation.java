@@ -12,7 +12,8 @@ public class UserValidation {
     public static final String PASSWORD1="^[A-Za-z0-9]{8,}$";
     public static final String PASSWORD2= "^(?=.*[A-Z]).{8,}$";
     public static final String PASSWORD3= "^(?=.*[A-Z])(?=.*[0-9]).{8,}";
-    public static final String PASSWORD4="^((?=[^\\W\\_]*[\\W\\_][^\\W\\_]*$)(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9\\W\\_]{8,})$";
+    public static final String PASSWORD4= "^((?=[^\\W\\_]*[\\W\\_][^\\W\\_]*$)(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9\\W\\_]{8,})$";
+
     public static boolean validateUserName(String uname)
     { return Pattern.matches(USERNAME,uname); }
     public static boolean validateEmail(String email)
@@ -21,6 +22,5 @@ public class UserValidation {
     { return mobile.matches(MOBILE); }
     public static boolean validatePassword(String password1, String password)
     {return password1.matches(password);}
-
 }
 
