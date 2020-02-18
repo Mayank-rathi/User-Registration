@@ -88,4 +88,16 @@ public class UserRegistrationTest {
         boolean result = UserValidation.validatePassword("rathi",UserValidation.PASSWORD3);
         Assert.assertEquals(false,result);
     }
+    @Test
+    public void givePasswordWithAtLeastOneUpperCaseLatterEightCharactersAndOneDigitAndAtleastOneSpecialCharacter_WhenProper_ShouldReturnTrue() {
+        boolean result = UserValidation.validatePassword("MAEEMAYANK33-",UserValidation.PASSWORD4);
+        Assert.assertEquals(true, result);
+    }
+    @Test
+    public void givePasswordWithAtLeastOneUpperCaseLatterEightCharactersAndOneDigitAndAtleastOneSpecialCharacter_WhenUnProper_ShouldReturnFalse()
+    {
+        boolean result = UserValidation.validatePassword("rathi",UserValidation.PASSWORD4);
+        Assert.assertEquals(false,result);
+    }
+
 }
