@@ -9,13 +9,19 @@ public class UserValidation {
     private static final String USERNAME = "^[A-Z]{1}[A-Za-z]{3,}$";
     private static final String EMAIL = "^[a-zA-Z]{1}[a-zA-Z0-9]*([-.+_]{1}[a-zA-Z0-9]+)?[@]{1}[a-zA-Z0-9]+[.]{1}[a-z]{2,4}([.][a-z]{2,3})?";
     private static final String MOBILE = "^[1-9]{1,3}[ ][1-9]{1}[0-9]{9}$";
-    private static final String PASSWORD1="^[A-Za-z]{8,}$";
+    private static final String PASSWORD1="^[A-Za-z0-9]{8,}$";
+    private static final String PASSWORD2= "^(?=.*[A-Z]).{8,}";
 
-
-    public static boolean validateUserName(String uname) { return Pattern.matches(USERNAME,uname); }
-    public static boolean validateEmail(String email) { return Pattern.matches(EMAIL,email); }
-    public static boolean validateMobile(String mobile) { return Pattern.matches(MOBILE,mobile); }
-    public static boolean validatePassword1(String password1){return Pattern.matches(PASSWORD1,password1);}
-
+    public static boolean validateUserName(String uname)
+    { return Pattern.matches(USERNAME,uname); }
+    public static boolean validateEmail(String email)
+    { return email.matches(EMAIL);}
+    public static boolean validateMobile(String mobile)
+    { return mobile.matches(MOBILE); }
+    public static boolean validatePassword1(String password1)
+    {return password1.matches(PASSWORD1);}
+    public static boolean validatePassword2(String password2)
+    {return password2.matches(PASSWORD2);}
 
 }
+
