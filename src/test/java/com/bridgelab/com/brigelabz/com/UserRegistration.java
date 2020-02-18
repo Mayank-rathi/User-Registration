@@ -53,5 +53,15 @@ public class UserRegistration {
         boolean result = UserValidation.validateMobile("888880465245");
         Assert.assertEquals(false,result);
     }
-
+    @Test
+    public void givePasswordWithAtLeastEightCaseLatter_WhenProper_ShouldReturnTrue() {
+        boolean result = UserValidation.validatePassword1("Mayankrathiiii");
+        Assert.assertEquals(true, result);
+    }
+    @Test
+    public void givePasswordWithAtLeastEightCaseLatter_WhenUnProper_ShouldReturnFalse()
+    {
+        boolean result = UserValidation.validatePassword1("rathi");
+        Assert.assertEquals(false,result);
+    }
 }
