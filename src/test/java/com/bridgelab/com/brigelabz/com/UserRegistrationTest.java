@@ -3,7 +3,9 @@ package com.bridgelab.com.brigelabz.com;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class UserRegistration {
+import static com.bridgelab.com.brigelabz.com.UserValidation.PASSWORD1;
+
+public class UserRegistrationTest {
 
     @Test
     public void giveFirstName_WhenProper_ShouldReturnTrue() {
@@ -55,24 +57,35 @@ public class UserRegistration {
     }
     @Test
     public void givePasswordWithAtLeastEightCaseLatter_WhenProper_ShouldReturnTrue() {
-        boolean result = UserValidation.validatePassword1("Mayankrathiiii");
+        boolean result = UserValidation.validatePassword("Mayankrathiiii", UserValidation.PASSWORD1);
         Assert.assertEquals(true, result);
     }
     @Test
     public void givePasswordWithAtLeastEightCaseLatter_WhenUnProper_ShouldReturnFalse()
     {
-        boolean result = UserValidation.validatePassword1("rathi");
+        boolean result = UserValidation.validatePassword("rathi", UserValidation.PASSWORD1);
         Assert.assertEquals(false,result);
     }
     @Test
     public void givePasswordWithAtLeastOneUpperCaseLatterAndEightCharacters_WhenProper_ShouldReturnTrue() {
-        boolean result = UserValidation.validatePassword1("Mayankrathiiii");
+        boolean result = UserValidation.validatePassword("iiiiiiiihjH",UserValidation.PASSWORD2);
         Assert.assertEquals(true, result);
     }
     @Test
     public void givePasswordWithAtLeastOneUpperCaseLatterAndEightCharacters_WhenUnProper_ShouldReturnFalse()
     {
-        boolean result = UserValidation.validatePassword1("rathi");
+        boolean result = UserValidation.validatePassword("rathi",UserValidation.PASSWORD2);
+        Assert.assertEquals(false,result);
+    }
+    @Test
+    public void givePasswordWithAtLeastOneUpperCaseLatterAndEightCharactersAndOneDigit_WhenProper_ShouldReturnTrue() {
+        boolean result = UserValidation.validatePassword("MAEEMAYANK33",UserValidation.PASSWORD3);
+        Assert.assertEquals(true, result);
+    }
+    @Test
+    public void givePasswordWithAtLeastOneUpperCaseLatterAndEightCharactersAndOneDigit_WhenUnProper_ShouldReturnFalse()
+    {
+        boolean result = UserValidation.validatePassword("rathi",UserValidation.PASSWORD3);
         Assert.assertEquals(false,result);
     }
 }
