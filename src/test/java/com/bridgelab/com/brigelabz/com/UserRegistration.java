@@ -2,50 +2,55 @@ package com.bridgelab.com.brigelabz.com;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.w3c.dom.ls.LSOutput;
 
 public class UserRegistration {
+
     @Test
     public void giveFirstName_WhenProper_ShouldReturnTrue() {
-        UserValidation validation = new UserValidation();
-        boolean result = validation.validateFirstName("Mayank");
+        boolean result = UserValidation.validateUserName("Mayank");
         Assert.assertEquals(true, result);
     }
 
     @Test
     public void giveFirstName_WhenUnProper_ShouldReturnFalse()
     {
-        UserValidation validation = new UserValidation();
-        boolean result = validation.validateFirstName("mayank");
+        boolean result = UserValidation.validateUserName("mayank");
         Assert.assertEquals(false,result);
     }
 
     @Test
     public void giveLastName_WhenProper_ShouldReturnTrue() {
-        UserValidation validation = new UserValidation();
-        boolean result = validation.validateFirstName("Mayankrathi");
-        Assert.assertEquals(true, result);
+        boolean result = UserValidation.validateUserName("Rathi");
+        Assert.assertEquals(true,result);
     }
 
     @Test
     public void giveLastName_WhenUnProper_ShouldReturnFalse()
     {
-        UserValidation validation = new UserValidation();
-        boolean result = validation.validateFirstName("may");
+        boolean result = UserValidation.validateUserName("rathi");
         Assert.assertEquals(false,result);
     }
     @Test
     public void giveEmail_WhenProper_ShouldReturnTrue() {
-        UserValidation validation = new UserValidation();
-        boolean result = validation.validateEMAIL("abc-100@yahoo.com");
+        boolean result = UserValidation.validateEmail("abc-100@yahoo.com");
         Assert.assertEquals(true, result);
     }
-
     @Test
     public void giveEmail_WhenUnProper_ShouldReturnFalse()
     {
-        UserValidation validation = new UserValidation();
-        boolean result = validation.validateEMAIL("abc..2002@gmail.com");
+        boolean result = UserValidation.validateEmail("mayankRathi.com");
+        Assert.assertEquals(false,result);
+    }
+
+    @Test
+    public void giveMobile_WhenProper_ShouldReturnTrue() {
+        boolean result = UserValidation.validateMobile("91 8888045245");
+        Assert.assertEquals(true, result);
+    }
+    @Test
+    public void giveMobile_WhenUnProper_ShouldReturnFalse()
+    {
+        boolean result = UserValidation.validateMobile("888880465245");
         Assert.assertEquals(false,result);
     }
 
